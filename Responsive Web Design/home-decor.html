@@ -1,0 +1,111 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script
+      src="https://kit.fontawesome.com/73fdb8064c.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <div
+          class="flex items-center flex-wrap bg-blue-500 text-white justify-between p-4 md:px-8"
+        >
+          <!-- Logo Area -->
+          <div class="flex-shrink-0">
+            <span class="font-bold text-xl md:text-3xl ">
+              <i class="fa-solid fa-house-chimney"></i> DecorPlus
+            </span>
+          </div>
+
+          <div class="flex items-center space-x-6">
+            <!-- Desktop Menu: Shows on md screens and up -->
+            <ul class="hidden md:flex space-x-6 font-medium">
+              <li><a href="#" class="hover:underline">Home</a></li>
+              <li><a href="#" class="hover:underline">About</a></li>
+              <li><a href="#" class="hover:underline">Services</a></li>
+              <li><a href="#" class="hover:underline">Contact</a></li>
+            </ul>
+
+            <!-- Mobile Dropdown: Shows only on mobile -->
+            <div class="md:hidden mx-2">
+              <select
+                class="text-md bg-blue-500 border border-blue-400 rounded px-2 py-1 outline-none text-white"
+              >
+                <option value="#">Home</option>
+                <option value="#">About</option>
+                <option value="#">Services</option>
+                <option value="#">Contact</option>
+              </select>
+            </div>
+
+            <div>
+              <button
+                class="bg-blue-700 rounded-lg text-sm px-2 py-2 hover:bg-indigo-600 transition duration-300 ease-in-out whitespace-nowrap animate-pulse"
+              >
+                Book a Session
+              </button>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section>
+        <div
+          class="flex flex-wrap min-h-[50vh] m-4 p-6 items-center justify-center bg-[url('interior-decor.jpg')] bg-cover bg-center rounded-2xl"
+        >
+          <h1
+            class="text-3xl md:text-5xl lg:text-6xl font-bold text-white text-center drop-shadow-lg"
+          >
+            Welcome to DecorPlus!
+          </h1>
+          
+        </div>
+        <div class="flex items-center justify-center m-4 rounded-2xl bg-blue-500/10 h-auto">
+            <p
+            class="text-lg md:text-xl lg:text-3xl font-bold text-slate-700 text-left drop-shadow-lg px-6 py-2"
+          >
+            We blend luxury, comfort, and functional design to create interiors
+            that reflect your unique personality and lifestyle.
+          </p>
+        </div>
+      </section>
+
+      <!-- Image Gallery: 1 column on mobile, 3 columns on desktop -->
+      <section>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 m-4">
+          <div>
+            <img
+              src="interior-decor-1.jpg"
+              alt="Modern apartment interior"
+              class="w-full h-64 md:h-96 object-cover rounded-2xl hover:zoom-[1.05]"
+            />
+          </div>
+          <div>
+            <img
+              src="interior-decor-2.jpg"
+              alt="Modern apartment interior"
+              class="w-full h-64 md:h-96 object-cover rounded-2xl hover:zoom-[1.05]"
+            />
+          </div>
+          <div>
+            <img
+              src="interior-decor-3.jpg"
+              alt="Modern apartment interior"
+              class="w-full h-64 md:h-96 object-cover rounded-2xl hover:zoom-[1.05]"
+            />
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer></footer>
+  </body>
+</html>

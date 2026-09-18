@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://kit.fontawesome.com/73fdb8064c.js" crossorigin="anonymous"></script>
+    <title>Bootstrap</title>
+</head>
+<body>
+    <div class="container flex mx-auto h-[64px] w-fit bg-purple-700 my-2">
+        <div class="mx-4 my-3">
+            <h1 class="text-3xl text-white border rounded-sm px-2 text-center">B</h1>
+        </div>
+        <div class="nav-items flex items-center ml-auto w-5/6">
+            <ul class="flex space-x-4">
+                <li><a href="#" class="text-white font-bold">Home</a></li>
+                <li><a href="#" class="text-white">Documentation</a></li>
+                <li><a href="#" class="text-white">Examples</a></li>
+                <li><a href="#" class="text-white">Icons</a></li>
+                <li><a href="#" class="text-white">Themes</a></li>
+                <li><a href="#" class="text-white">Expo</a></li>
+                <li><a href="#" class="text-white">Blog</a></li>
+            </ul>
+        </div>
+        <div class="select-version my-3 py-1 ml-24">
+            <select class="rounded-sm px-2 py-1 text-white">
+                <option value="v5.3" class="hover:bg-purple-700 bg-black text-white">v5.3</option>
+                <option value="v5.2" class="hover:bg-purple-700 bg-black text-white">v5.2</option>
+                <option value="v5.1" class="hover:bg-purple-700 bg-black text-white">v5.1</option>
+                <option value="v5.0" class="hover:bg-purple-700 bg-black text-white ">v5.0</option>
+                <option value="v4.6" selected class="hover:bg-purple-700 bg-black text-white">v4.6</option>
+            </select>
+        </div>
+
+        <div class="icon-group flex items-center my-3 py-1 ml-4">
+            <i class="fa-brands fa-github text-white mx-2"></i>
+            <i class="fa-brands fa-twitter ml-4 text-white mx-2"></i>
+            <i class="fa-brands fa-slack text-white mx-2"></i>
+            <i class="fa-solid fa-circle-notch p-0.5 rounded-lg text-sm text-white mx-2 rotate-90"></i>
+        </div>
+
+        <div class="download-button ml-4 my-3 py-1">
+            <button class="bg-purple-700 text-yellow-400 px-4 rounded-sm font-bold text-sm border border-yellow-400 mr-6 ml-2 h-8">Download</button>
+        </div>
+    </div>
+</body>
+</html>

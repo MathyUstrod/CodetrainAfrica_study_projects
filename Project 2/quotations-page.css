@@ -1,0 +1,120 @@
+html {
+    background-color: white;
+    margin: 0%;
+}
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    border-width: opx;
+    /* background-color: rgb(231, 229, 229); */
+}
+
+nav {
+    height: 20%;
+    padding: 15px;
+    color: white;
+}
+
+.logo {
+    font-family: 'Lucida Sans';
+    font-size: 3rem;
+    margin: 10px 0px;
+    background-color: rgb(88, 88, 241);
+    height: 10%;
+    width: 10%;
+    padding: 5px;
+    text-align: center;
+   
+}
+
+.app-name {
+    height: 10%;
+    width: 10%;
+    padding: 5px;
+    margin: 10px;
+    font-size: 2rem;
+    color: rgb(88, 88, 241);
+}
+
+nav ul {
+    background-color: rgb(88, 88, 241);
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+}
+
+ul li {
+    float: left;
+}
+
+ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+header p {
+    margin: 0px 10px;
+    padding: 10px;
+    color: rgb(88, 88, 241);
+    font-weight: bold;
+}
+
+form label {
+    margin-left: 10px;
+    padding: 0px 10px;
+    color: rgb(88, 88, 241);
+}
+
+form input[type="text"] {
+    height: 25px;
+    width: 50%;
+    border: 0px;
+    border-radius: 5px;
+    color: grey;
+    padding: 5px;
+    background-color: rgb(88, 88, 241, 0.2);
+    outline: none;
+}
+
+form input[type="text"]:focus {
+    border-color: rgb(88, 88, 241, 0.2);
+}
+
+table {
+    width: 98%;
+    margin-top: 20px;
+    padding: 10px;
+    color: grey;
+    border-collapse: collapse;
+    margin-left: 1%;
+    height: auto;
+}
+
+/* .table {
+    border-radius: 5px;
+    background-color: rgb(88, 88, 241, 0.2);
+    width: 98%;
+    margin-left: 1%;
+    margin-top: 30px;
+} */
+
+th {
+    text-align: left;
+    background-color: rgb(88, 88, 241);
+    color: white;
+    padding: 5px;
+    height: 30px;
+}
+
+tr td {
+    text-align: left;
+    padding: 5px;
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://kit.fontawesome.com/73fdb8064c.js" crossorigin="anonymous"></script>
+    <title>BBC</title>
+</head>
+<body >
+    <main >
+        <div class=" bg-black  flex flex-row justify-between w-full h-[41px]">
+            <nav class="flex items-center w-full">
+                <div class="w-[15%] flex border-gray-500 pl-6 h-auto pr-2">
+                    <div class="flex w-6 px-1 text-xl font-bold bg-white mx-1">
+                        <span class="">B</span>
+                    </div>
+                    <div class="flex w-6 px-1 text-xl font-bold bg-white mx-1">
+                        <span class="">B</span>
+                    </div>
+                    <div class="flex w-6 px-1 text-xl font-bold bg-white mx-1">
+                        <span class="">C</span>
+                    </div>
+                </div>
+                <div class="border-gray-500 border-l flex text-white h-[41px] py-2 w-[20%]">
+                    <p class="text-sm pl-[20%] font-bold"><i class="fa-solid fa-circle-user text-white"></i> Sign in</p>
+                </div>
+
+                <div class="h-[41px] w-[45%]">
+                    <ul class="list-none flex items-center text-sm h-full text-white">
+                        <li class="flex-1 px-2 font-bold border-l border-gray-500  py-2 text-center h-full">News</li>
+                        <li class="flex-1 px-2 font-bold border-l border-gray-500 py-2 text-center h-full">Sport</li>
+                        <li class="flex-1 px-2 font-bold border-l border-gray-500 py-2  text-center h-full">Reel</li>
+                        <li class="flex-[1.5] px-2 font-bold border-l border-gray-500 py-2  text-center h-full">Worklife</li>
+                        <li class="flex-1 px-2 font-bold border-l border-gray-500 py-2 text-center h-full">Travel</li>
+                        <li class="flex-[1.2] px-2 font-bold border-l border-r border-gray-500 py-2 text-center h-full">Future</li>
+                        <li class=" flex-[1.5] pl-2 pr-4 font-bold border-gray-500 text-white bg-black h-full">
+                            <select class="w-full h-[60%] my-1">
+                                <option value="more" selected class="bg-black text-white">More</option>
+                                <option value="culture" class="bg-black text-white">Culture</option>
+                                <option value="music" class="bg-black text-white">Music</option>
+                                <option value="tech" class="bg-black text-white">Tech</option>
+                            </select>
+                        </li>
+                    </ul>
+                </div>
+                <div class="relative flex h-[41px] w-[40%] m-2">
+                    <input type="text" placeholder="Search" class="w-full h-2/3 pl-4 pr-12 my-2 mr-6 text-black bg-white  border border-gray-300 focus:outline-none">
+                    <button class="absolute inset-y-0 right-0 pr-2 pt-2 pb-2 h-auto ml-2 my-2 mr-5 bg-none text-gray-500 px-4 fa-solid fa-magnifying-glass">Search</button>
+                </div>
+            </nav>
+        </div>
+    </main>
+</body>
+</html>
