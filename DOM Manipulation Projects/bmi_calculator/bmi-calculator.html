@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>BMI Calculator</title>
+  </head>
+  <body>
+    <header class="bg-cyan-500 h-auto">
+      <!-- <img src="weight-scale.jpg" alt="weight-scale" class="relative bg-cover bg-center bg-no-repeat"> -->
+      <section class="p-6">
+        <h1 class="text-white text-5xl font-bold text-center">
+          Check if your weight is in a healthy range for your height.
+        </h1>
+      </section>
+      <section class="px-6 pb-6">
+        <p class="text-cyan-100 text-2xl md:text-justify">
+          Our free Body Mass Index (BMI) tool provides an instant snapshot of
+          your body mass category without requiring any registration or sign-up.
+          Simply select your preferred unit system, enter your measurements
+          below, and click calculate to view your result.
+        </p>
+      </section>
+    </header>
+    <main>
+      <section class="bg-cyan-200/30 p-4 ">
+        <div class="bg-cyan-200/20 py-6 mx-2 rounded-md">
+          <div class="flex flex-col items-center md:justify-content my-2">
+            <label for="height" class="my-2 text-xl text-cyan-800"
+              >Height (cm):</label
+            >
+            <input
+              type="number"
+              name="height"
+              id="height"
+              class="border border-cyan-800 px-4 py-2 rounded-md text-xl text-cyan-800 outline-0 md:w-[30vw] text-center"
+            />
+          </div>
+          <div class="flex flex-col items-center mt-4 md:justify-center">
+            <label for="weight" class="my-2 text-xl text-cyan-800"
+              >Weight (kg):</label
+            >
+            <input
+              type="number"
+              name="weight"
+              id="weight"
+              class="border border-cyan-800 px-4 py-2 rounded-md text-xl text-cyan-800 outline-0 md:w-[30vw] text-center"
+            />
+          </div>
+          <div class="flex flex-col items-center my-4 md:justify-center">
+            <h3 class="my-2 text-xl text-cyan-800">Your BMI:</h3>
+            <p
+              id="bmi"
+              class="border border-cyan-100 text-cyan-800 px-4 py-2 rounded-md w-90vw text-3xl md:w-[30vw] text-center"
+            >
+              0.00
+            </p>
+          </div>
+          <div class="flex flex-col items-center my-4 md:justify-center">
+            <button
+              onclick="updateUI()"
+              class="bg-cyan-700 py-2 px-4 w-auto my-4 text-cyan-100 rounded-md text-lg hover:bg-cyan-800"
+            >
+              Calculate
+            </button>
+          </div>
+        </div>
+
+        <div class="flex flex-col items-center my-2 text-cyan-800">
+          <h3 class="font-bold text-3xl text-center">
+            Understanding Your BMI Results
+          </h3>
+          <p class="text-lg md:text-2xl text-justify">
+            Your BMI is calculated by dividing your weight in kilograms by your
+            height in meters squared (kg/m²). The table below displays the
+            standard weight status categories defined for adults aged 18 and
+            older:
+          </p>
+          <div>
+            <table class="mt-4 mb-8 border text-sm md:text-2xl">
+              <thead>
+                <th class="border">
+                  <tr class="font-semibold py-2 bg-cyan-700 text-cyan-100">
+                    <td class="p-2">BMI Range</td>
+                    <td class="p-2">Weight Category</td>
+                    <td class="p-2">Associated Health Considerations</td>
+                  </tr>
+                </th>
+              </thead>
+              <tbody>
+                <tr class="border">
+                  <td
+                    class="px-2 py-4 text-amber-800 bg-amber-400/40 font-semibold"
+                  >
+                    Below 18.5
+                  </td>
+                  <td class="px-2 py-4 bg-amber-400/10">Underweight</td>
+                  <td class="px-2 py-4 bg-amber-400/10">
+                    May indicate malnutrition, vitamin deficiencies, or
+                    osteoporosis.
+                  </td>
+                </tr>
+                <tr class="border">
+                  <td
+                    class="px-2 py-4 text-green-800 bg-green-400/60 font-semibold"
+                  >
+                    18.5 - 24.9
+                  </td>
+                  <td class="px-2 py-4 bg-green-400/20">Healthy Weight</td>
+                  <td class="px-2 py-4 bg-green-400/20">
+                    Associated with lower risks of chronic disease and optimal
+                    health.
+                  </td>
+                </tr>
+                <tr class="border">
+                  <td
+                    class="px-2 py-4 text-orange-800 bg-orange-400/60 font-semibold"
+                  >
+                    25.0 - 29.9
+                  </td>
+                  <td class="px-2 py-4 bg-orange-400/20">Overweight</td>
+                  <td class="px-2 py-4 bg-orange-400/20">
+                    Increased risk for type 2 diabetes, cardiovascular issues,
+                    and hypertension.
+                  </td>
+                </tr>
+                <tr class="border">
+                  <td
+                    class="px-2 py-4 text-red-800 bg-red-400/60 font-semibold"
+                  >
+                    30.0 and Above
+                  </td>
+                  <td class="px-2 py-4 bg-red-400/20">Obese</td>
+                  <td class="px-2 py-4 bg-red-400/20">
+                    Higher risk for severe long-term chronic conditions,
+                    metabolic syndrome, and heart disease.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script type="text/javascript" src="bmi-calculator.js"></script>
+  </body>
+</html>
