@@ -52,3 +52,29 @@ for (let i=0; i<paragraphs.length; i++) {
     }
 }
 
+// Event handling in JS and event listeners
+const btn1 = document.getElementById("myBtn1");
+const btn2 = document.getElementById("myBtn2");
+
+function clickedBtn2() {
+    msgField.innerHTML = "Button 2 was clicked!";
+    msgField.style.color = "violet";
+    msgField.style.fontWeight = "bold";
+}
+
+// function clickedBtn1() {
+//     alert("Button 1 clicked!");
+// }
+
+let msgField = document.getElementById("message");
+const message = "This is a message from JavaScript.";
+
+let clickedBtn1 = () => {
+    msgField.innerHTML = message;
+    msgField.style.color = "blue";
+    msgField.style.fontWeight = "bold";
+    
+}
+
+btn2.addEventListener("click", clickedBtn2);
+
