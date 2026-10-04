@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Higher or Lower Guessing Game</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <main class="flex justify-center items-center">
+      <section class="flex justify-center items-center flex-col m-16 w-100  p-10 rounded-lg">
+        <h1 id="result" class="font-bold text-2xl my-4 text-blue-600">Guess the number!</h1>
+
+        <input
+          type="number"
+          name=""
+          id="numberInput"
+          class="border border-blue-500 rounded-lg h-8 my-4 outline-0 p-2 text-center"
+        />
+
+        <button
+          onclick="compareNumber()"
+          class="bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 my-2"
+        >
+          Guess
+        </button>
+      </section>
+    </main>
+
+    <script type="text/javascript" src="higher-or-lower.js"></script>
+  </body>
+</html>
