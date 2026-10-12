@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script
+      src="https://kit.fontawesome.com/73fdb8064c.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>NsafoaHene</title>
+  </head>
+  <body class="bg-violet-50/90 max-w-auto">
+    <header>
+      <div
+        class="grid grid-cols-1 md:cols-2 items-center justify-start items-stretch h-auto bg-violet-100"
+      >
+        <!-- My Logo text -->
+        <div class="flex items-center justify-center">
+          <i
+            class="fa-solid fa-key text-4xl md:text-5xl font-extrabold p-2 text-violet-800 text-center"
+          ></i>
+          <h1
+            class="text-4xl md:text-5xl font-extrabold p-2 text-violet-800 text-center"
+          >
+            NsafoaHene
+          </h1>
+        </div>
+        <nav class="bg-violet-300/60">
+          <ul
+            class="flex items-center space-x-2 md:space-x-8 p-2 mx-4 h-auto justify-center text-sm font-semibold md:text-3xl text-violet-800 flex-wrap"
+          >
+            <li
+              class="hover:bg-violet-500 hover:text-violet-50 px-2 py-2 hover:rounded-md"
+            >
+              <a>Cabinet</a>
+            </li>
+            <li
+              class="hover:bg-violet-500 hover:text-violet-50 px-2 py-2 hover:rounded-md"
+            >
+              <a>Check in</a>
+            </li>
+            <li
+              class="hover:bg-violet-500 hover:text-violet-50 px-2 py-2 hover:rounded-md"
+            >
+              <a>Check out</a>
+            </li>
+            <li
+              class="hover:bg-violet-500 hover:text-violet-50 px-2 py-2 hover:rounded-md"
+            >
+              <a>Key Logs</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="">
+      <!-- Key Cabinet -->
+      <section class="grid grid-cols-1 justify-items-center mb-8 py-8">
+        <div class="mb-2">
+          <h3 class="text-2xl text-violet-800 font-semibold">Key Cabinet</h3>
+        </div>
+        <!-- Key grid -->
+        <div
+          class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 justify-center px-4 mt-4"
+          id="key-grid"
+        >
+          <div
+            class="min-w-40 bg-slate-200 grid grid-cols-1 gap-2 justify-items-center p-4 text-violet-800 font-semibold text-sm md:text-2xl rounded-md transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:bg-slate-300"
+            id="key-holder-1"
+          >
+            <h3 class="text-center p-2 room-number" id="">Room 001</h3>
+            <button class="rounded-full w-8 h-8 status"></button>
+          </div>
+          <div
+            class="min-w-40 bg-slate-200 grid grid-cols-1 gap-2 justify-items-center p-4 text-violet-800 font-semibold text-sm md:text-2xl rounded-md transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:bg-slate-300"
+            id="key-holder-1"
+          >
+            <h3 class="text-center p-2 room-number" id="">Room 002</h3>
+            <button class="rounded-full w-8 h-8 status"></button>
+          </div>
+          <div
+            class="min-w-40 bg-slate-200 grid grid-cols-1 gap-2 justify-items-center p-4 text-violet-800 font-semibold text-sm md:text-2xl rounded-md transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:bg-slate-300"
+            id="key-holder-1"
+          >
+            <h3 class="text-center p-2 room-number" id="">Room 003</h3>
+            <button class="rounded-full w-8 h-8 status"></button>
+          </div>
+          <div
+            class="min-w-40 bg-slate-200 grid grid-cols-1 gap-2 justify-items-center p-4 text-violet-800 font-semibold text-sm md:text-2xl rounded-md transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:bg-slate-300"
+            id="key-holder-1"
+          >
+            <h3 class="text-center p-2 room-number" id="">Room 004</h3>
+            <button class="rounded-full w-8 h-8 status"></button>
+          </div>
+        </div>
+      </section>
+      <div class="grid grid-cols-1 lg:grid-cols-3">
+        <!-- Add new key holder -->
+        <section>
+          <div class="grid grid-cols-1 mt-6 mx-12 bg-violet-100">
+            <details>
+              <summary
+                class="text-violet-800 text-2xl md:text-3xl font-semibold p-2"
+              >
+                Add a new key holder
+              </summary>
+              <!-- Holder details -->
+              <form
+                action=""
+                class="bg-violet-50 py-4 px-6 rounded-md"
+                id="add-key-holder"
+              >
+                <div class="grid grid-cols-1 justify-items-center gap-4">
+                  <label
+                    for="add-room-name"
+                    class="w-full mt-2 text-lg text-violet-800"
+                    >Enter Room Name or Number*</label
+                  >
+                  <input
+                    type="text"
+                    placeholder="Room name or number"
+                    name="add-room-name"
+                    id="add-room-name"
+                    class="w-full p-4 text-lg text-violet-950 outline-0 border-1 rounded-lg my-2"
+                    required
+                  />
+                  <label
+                    for="room-keys-number"
+                    class="w-full mt-2 text-lg text-violet-800"
+                    >Specify Number of Keys*</label
+                  >
+                  <input
+                    type="number"
+                    placeholder="Number of keys"
+                    name="room-keys-number"
+                    id="room-keys-number"
+                    class="w-full p-4 text-lg text-violet-950 outline-0 border-1 rounded-lg my-2"
+                  />
+                  <button
+                    class="w-full bg-violet-500 text-xl font-semibold text-violet-50 py-2 rounded-lg"
+                    type="submit"
+                  >
+                    Add
+                  </button>
+                </div>
+              </form>
+            </details>
+          </div>
+        </section>
+
+        <!-- Key Check out -->
+        <section>
+          <div class="grid grid-cols-1 mt-6 mx-12 bg-rose-100">
+            <details>
+              <summary
+                class="text-rose-800 text-2xl md:text-3xl font-semibold p-2"
+              >
+                Check out a key
+              </summary>
+              <!-- Details -->
+              <form
+                action=""
+                class="bg-rose-50 py-4 px-6 rounded-md"
+                id="check-out-key"
+              >
+                <div class="grid grid-cols-1 justify-items-center gap-4">
+                  <label
+                    for="select-room-number-checkout"
+                    class="w-full mt-2 text-lg text-rose-800"
+                    >Select Room Name or Number*</label
+                  >
+                  <select
+                    name="select-room-number-check-out"
+                    id="select-room-number-checkout"
+                    class="w-full p-4 text-lg text-rose-950 outline-0 border-1 rounded-lg my-2"
+                    required
+                  >
+                    <option value="" selected disabled>
+                      Select Room Number
+                    </option>
+                    <option value="room-1">Room 001</option>
+                    <option value="room-2">Room 002</option>
+                    <option value="room-3">Room 003</option>
+                    <option value="room-4">Room 004</option>
+                  </select>
+                  <label
+                    for="your-name-checkout"
+                    class="w-full mt-2 text-lg text-rose-800"
+                    >Enter Your Name*</label
+                  >
+                  <input
+                    type="text"
+                    placeholder="Enter your name"
+                    name="your-name-checkout"
+                    id="your-name-checkout"
+                    required
+                    class="w-full p-4 text-lg text-rose-950 outline-0 border-1 rounded-lg my-2"
+                  />
+                  <div class="flex content-start w-full my-2">
+                    <input
+                      type="checkbox"
+                      name="delegate"
+                      id="delegate"
+                      value="yes"
+                      required
+                      class="text-rose-800 w-6 h-6 p-2"
+                    />
+                    <label for="delegate" class="px-4 text-rose-800 text-lg"
+                      >I am checking out for someone</label
+                    >
+                  </div>
+                  <label
+                    for="requester-name-checkout"
+                    class="w-full mt-2 text-lg text-rose-800"
+                    >Enter Requester Name*</label
+                  >
+                  <input
+                    type="text"
+                    placeholder="Enter requester name"
+                    name="requester-name-checkout"
+                    id="requester-name-checkout"
+                    class="w-full p-4 text-lg text-rose-950 outline-0 border-1 rounded-lg my-2"
+                  />
+                  <button
+                    class="w-full bg-rose-500 text-xl font-semibold text-rose-50 py-2 rounded-lg"
+                    type="submit"
+                  >
+                    Check Out
+                  </button>
+                </div>
+              </form>
+            </details>
+          </div>
+        </section>
+
+        <!-- Key Check in -->
+        <section>
+          <div class="grid grid-cols-1 mt-6 mx-12 bg-emerald-100">
+            <details>
+              <summary
+                class="text-emerald-800 text-2xl md:text-3xl font-semibold p-2"
+              >
+                Check in a key
+              </summary>
+              <!-- Details -->
+              <form
+                action=""
+                class="bg-emerald-50 py-4 px-6 rounded-md"
+                id="check-in-key"
+              >
+                <div class="grid grid-cols-1 justify-items-center gap-4">
+                  <label
+                    for="select-room-number-checkin"
+                    class="w-full mt-2 text-lg text-emerald-800"
+                    >Select Room Name or Number*</label
+                  >
+                  <select
+                    name="select-room-number-check-in"
+                    id="select-room-number-checkin"
+                    class="w-full p-4 text-lg text-emerald-950 outline-0 border-1 rounded-lg my-2"
+                    required
+                  >
+                    <option value="" selected disabled>
+                      Select Room Number
+                    </option>
+                    <option value="room-1">Room 001</option>
+                    <option value="room-2">Room 002</option>
+                    <option value="room-3">Room 003</option>
+                    <option value="room-4">Room 004</option>
+                  </select>
+                  <label
+                    for="your-name-checkin"
+                    class="w-full mt-2 text-lg text-emerald-800"
+                    >Enter Your Name*</label
+                  >
+                  <input
+                    type="text"
+                    placeholder="Enter your name"
+                    name="your-name-checkin"
+                    id="your-name-checkin"
+                    required
+                    class="w-full p-4 text-lg text-emerald-950 outline-0 border-1 rounded-lg my-2"
+                  />
+                  <button
+                    class="w-full bg-emerald-500 text-xl font-semibold text-emerald-50 py-2 rounded-lg"
+                    type="submit"
+                  >
+                    Check Out
+                  </button>
+                </div>
+              </form>
+            </details>
+          </div>
+        </section>
+      </div>
+
+      <section></section>
+    </main>
+
+    <script lang="text/javascript" src="app.js"></script>
+  </body>
+</html>
