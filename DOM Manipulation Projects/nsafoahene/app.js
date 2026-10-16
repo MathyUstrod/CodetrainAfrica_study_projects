@@ -207,7 +207,7 @@ function checkOutKey(roomNum, yourName, isRequester, requesterName) {
   }
 
   if (isKeyAvailable == true) {
-    refKey.lastActivity = new Date();
+    refKey.lastActivity = new Date().toLocaleString();
     refKey.yourName = yourName;
 
     if (isRequester) {
@@ -235,7 +235,7 @@ function checkInKey(roomNum, yourName) {
   }
 
   if (isKeyAvailable !== true) {
-    refKey.lastActivity = new Date();
+    refKey.lastActivity = new Date().toLocaleString();
     refKey.checkInName = yourName;
     refKey.isAvailable = true;
   } else {
