@@ -139,7 +139,7 @@
                     class="w-full p-4 text-lg text-violet-950 outline-0 border-1 rounded-lg my-2"
                   />
                   <button
-                    class="w-full bg-violet-500 text-xl font-semibold text-violet-50 py-2 rounded-lg"
+                    class="w-full bg-violet-500 hover:bg-violet-700 text-xl font-semibold text-violet-50 py-2 rounded-lg"
                     type="submit"
                   >
                     Add
@@ -180,10 +180,10 @@
                     <option value="" selected disabled>
                       Select Room Number
                     </option>
-                    <option value="room-1">Room 001</option>
-                    <option value="room-2">Room 002</option>
-                    <option value="room-3">Room 003</option>
-                    <option value="room-4">Room 004</option>
+                    <option value="001">Room 001</option>
+                    <option value="002">Room 002</option>
+                    <option value="003">Room 003</option>
+                    <option value="004">Room 004</option>
                   </select>
                   <label
                     for="your-name-checkout"
@@ -198,14 +198,13 @@
                     required
                     class="w-full p-4 text-lg text-rose-950 outline-0 border-1 rounded-lg my-2"
                   />
-                  <div class="flex content-start w-full my-2">
+                  <div class="flex content-start w-full my-2 items-center">
                     <input
                       type="checkbox"
                       name="delegate"
                       id="delegate"
-                      value="yes"
-                      required
-                      class="text-rose-800 w-6 h-6 p-2"
+                      value="true"
+                      class="text-rose-800 w-6 h-6 cursor-pointer mr-2 p-2"
                     />
                     <label for="delegate" class="px-4 text-rose-800 text-lg"
                       >I am checking out for someone</label
@@ -224,7 +223,7 @@
                     class="w-full p-4 text-lg text-rose-950 outline-0 border-1 rounded-lg my-2"
                   />
                   <button
-                    class="w-full bg-rose-500 text-xl font-semibold text-rose-50 py-2 rounded-lg"
+                    class="w-full bg-rose-500 hover:bg-rose-700 text-xl font-semibold text-rose-50 py-2 rounded-lg"
                     type="submit"
                   >
                     Check Out
@@ -265,10 +264,10 @@
                     <option value="" selected disabled>
                       Select Room Number
                     </option>
-                    <option value="room-1">Room 001</option>
-                    <option value="room-2">Room 002</option>
-                    <option value="room-3">Room 003</option>
-                    <option value="room-4">Room 004</option>
+                    <option value="001">Room 001</option>
+                    <option value="002">Room 002</option>
+                    <option value="003">Room 003</option>
+                    <option value="004">Room 004</option>
                   </select>
                   <label
                     for="your-name-checkin"
@@ -284,7 +283,7 @@
                     class="w-full p-4 text-lg text-emerald-950 outline-0 border-1 rounded-lg my-2"
                   />
                   <button
-                    class="w-full bg-emerald-500 text-xl font-semibold text-emerald-50 py-2 rounded-lg"
+                    class="w-full bg-emerald-500 hover:bg-emerald-700 text-xl font-semibold text-emerald-50 py-2 rounded-lg"
                     type="submit"
                   >
                     Check Out
@@ -295,8 +294,32 @@
           </div>
         </section>
       </div>
+      <!-- Table -->
+      <section class="flex justify-center flex-col mt-6 bg-violet-100">
+        <h3 class="font-semibold text-violet-800 text-2xl mx-4 my-4">
+          Key Cabinet Activity Log
+        </h3>
+        <table class="border-collapse border border-violet-500 text-md md:text-xl text-violet-800 mx-4 mb-12 table-auto md:table-fixed">
+          <thead>
+            <tr class="bg-violet-200">
+              <th class="border border-violet-500 p-2">Key ID</th>
+              <th class="border border-violet-500 p-2">Room ID</th>
+              <th class="border border-violet-500 p-2">
+                Name of Person Checking Key Out
+              </th>
+              <th class="border border-violet-500 p-2">Requester Name</th>
+              <th class="border border-violet-500 p-2">
+                Name of Person Checking Key In
+              </th>
+              <th class="border border-violet-500 p-2">Status</th>
+              <th class="border border-violet-500 p-2">Last Activity</th>
+            </tr>
+            <tbody id="cabinet-logs">
 
-      <section></section>
+            </tbody>
+          </thead>
+        </table>
+      </section>
     </main>
 
     <script lang="text/javascript" src="app.js"></script>

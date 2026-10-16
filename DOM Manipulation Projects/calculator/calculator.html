@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script
+      src="https://kit.fontawesome.com/73fdb8064c.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Calculator</title>
+  </head>
+
+  <body class="bg-black">
+    <main class="min-h-screen flex items-center justify-center">
+      <!-- Calculator Display -->
+      <section class="flex justify-center">
+        <div
+          class="shrink-0 bg-slate-950 border-4 border-gray-600 rounded-lg"
+          id="calc-btn"
+        >
+          <div class="flex justify-around w-80 px-4">
+            <p
+              class="text-slate-400 font-semibold text-3xl text-right px-4 pt-4 w-full h-12"
+              id="results"
+            ></p>
+          </div>
+          <div class="flex justify-around w-80 px-4">
+            <p
+              class="text-white font-semibold text-5xl text-right px-4 pb-4 w-full h-12"
+              id="entry-area"
+            >
+              0
+            </p>
+          </div>
+
+          <!-- buttons -->
+          <div
+            class="grid grid-cols-4 justify-center p-2 font-semibold text-2xl"
+          >
+            <div class="flex justify-around my-2">
+              <button
+                class="bg-gray-500 hover:bg-gray-400 w-15 h-15 rounded-full text-center text-white hover:scale-110 transition-transform"
+                id="backspace"
+              >
+                <i class="fa-solid fa-delete-left"></i>
+              </button>
+            </div>
+            <div class="flex justify-around my-2">
+              <button
+                class="bg-gray-500 hover:bg-gray-400 w-15 h-15 rounded-full text-center text-white hover:scale-110 transition-transform"
+                id="clear"
+              >
+                AC
+              </button>
+            </div>
+            <div class="flex justify-around my-2">
+              <button
+                class="bg-gray-500 hover:bg-gray-400 w-15 h-15 rounded-full text-center text-white hover:scale-110 transition-transform"
+                id="percent"
+              >
+                %
+              </button>
+            </div>
+            <div class="flex justify-around my-2">
+              <button
+                class="bg-amber-500 hover:bg-amber-400 w-15 h-15 rounded-full text-center text-white hover:scale-110 transition-transform"
+                id="divide"
+              >
+                <i class="fa-solid fa-divide"></i>
+              </button>
+            </div>
+
+            <div class="flex justify-around my-2">
+              <button
+                class="bg-gray-700 hover:bg-gray-600 w-15 h-15 rounded-full text-center text-white hover:scale-110 transition-transform key-number"
+              >
+                7
+              </button>
+            </div>
+            <div class="flex justify-around my-2">
+              <button
+                class="bg-gray-700 hover:bg-gray-600 w-15 h-15 rounded-full text-center text-white hover:scale-110 transition-transform key-number"
+              >
+                8
+              </button>
+            </div>
+            <div class="flex justify-around my-2">
+              <button
+                class="bg-gray-700 hover:bg-gray-600 w-15 h-15 rounded-full text-center text-white hover:scale-110 transition-transform key-number"
+              >
+                9
+              </button>
+            </div>
+            <div class="flex justify-around my-2">
+              <button
+                class="bg-amber-500 hover:bg-amber-400 w-15 h-15 rounded-full text-center text-white hover:scale-110 transition-transform"
+                id="multiply"
+              >
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+            </div>
+
+            <div class="flex justify-around my-2">
+              <button
+                class="bg-gray-700 hover:bg-gray-600 w-15 h-15 rounded-full text-center text-white hover:scale-110 transition-transform key-number"
+              >
+                4
+              </button>
+            </div>
+            <div class="flex justify-around my-2">
+              <button
+                class="bg-gray-700 hover:bg-gray-600 w-15 h-15 rounded-full text-center text-white hover:scale-110 transition-transform key-number"
+              >
+                5
+              </button>
+            </div>
+            <div class="flex justify-around my-2">
+              <button
+                class="bg-gray-700 hover:bg-gray-600 w-15 h-15 rounded-full text-center text-white hover:scale-110 transition-transform key-number"
+              >
+                6
+              </button>
+            </div>
+            <div class="flex justify-around my-2">
+              <button
+                class="bg-amber-500 hover:bg-amber-400 w-15 h-15 rounded-full text-center text-white hover:scale-110 transition-transform"
+                id="minus"
+              >
+                <i class="fa-solid fa-minus"></i>
+              </button>
+            </div>
+
+            <div class="flex justify-around my-2">
+              <button
+                class="bg-gray-700 hover:bg-gray-600 w-15 h-15 rounded-full text-center text-white hover:scale-110 transition-transform key-number"
+              >
+                1
+              </button>
+            </div>
+            <div class="flex justify-around my-2">
+              <button
+                class="bg-gray-700 hover:bg-gray-600 w-15 h-15 rounded-full text-center text-white hover:scale-110 transition-transform key-number"
+              >
+                2
+              </button>
+            </div>
+            <div class="flex justify-around my-2">
+              <button
+                class="bg-gray-700 hover:bg-gray-600 w-15 h-15 rounded-full text-center text-white hover:scale-110 transition-transform key-number"
+              >
+                3
+              </button>
+            </div>
+            <div class="flex justify-around my-2">
+              <button
+                class="bg-amber-500 hover:bg-amber-400 w-15 h-15 rounded-full text-center text-white hover:scale-110 transition-transform"
+                id="plus"
+              >
+                <i class="fa-solid fa-plus"></i>
+              </button>
+            </div>
+
+            <div class="flex justify-around my-2">
+              <button
+                class="bg-gray-700 hover:bg-gray-600 w-15 h-15 rounded-full text-center text-white hover:scale-110 transition-transform"
+                id="toggle-plus-minus"
+              >
+                +/-
+              </button>
+            </div>
+            <div class="flex justify-around my-2">
+              <button
+                class="bg-gray-700 hover:bg-gray-600 w-15 h-15 rounded-full text-center text-white hover:scale-110 transition-transform key-number"
+              >
+                0
+              </button>
+            </div>
+            <div class="flex justify-around my-2">
+              <button
+                class="bg-gray-700 hover:bg-gray-600 w-15 h-15 rounded-full text-center text-white hover:scale-110 transition-transform key-number"
+                id="decimal"
+              >
+                .
+              </button>
+            </div>
+            <div class="flex justify-around my-2">
+              <button
+                class="bg-amber-500 hover:bg-amber-400 w-15 h-15 rounded-full text-center text-white hover:scale-110 transition-transform"
+                id="equals"
+              >
+                <i class="fa-solid fa-equals"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script type="text/javascript" src="calculator.js"></script>
+  </body>
+</html>

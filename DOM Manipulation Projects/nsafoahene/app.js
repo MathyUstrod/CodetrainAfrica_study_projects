@@ -15,36 +15,40 @@ const keyCabinet = [
     roomID: "001",
     numberOfKeys: 2,
     isAvailable: true,
-    lastActivity: "",
+    lastActivity: new Date('Thu Oct 15 2026 00:36:56').toLocaleString(),
     yourName: "",
     requesterName: "",
+    checkInName: "",
   },
   {
     keyID: 2,
     roomID: "002",
     numberOfKeys: 3,
     isAvailable: false,
-    lastActivity: "",
-    yourName: "",
+    lastActivity: new Date('Thu Oct 14 2026 00:36:56').toLocaleString(),
+    yourName: "Jane Doe",
     requesterName: "",
+    checkInName: "",
   },
   {
     keyID: 3,
     roomID: "003",
     numberOfKeys: 4,
     isAvailable: false,
-    lastActivity: "",
-    yourName: "",
+    lastActivity: new Date('Thu Oct 15 2026 00:36:56').toLocaleString(),
+    yourName: "John Smith",
     requesterName: "",
+    checkInName: "",
   },
   {
     keyID: 4,
     roomID: "004",
     numberOfKeys: 1,
     isAvailable: true,
-    lastActivity: "",
+    lastActivity: new Date('Thu Oct 15 2026 00:36:56').toLocaleString(),
     yourName: "",
     requesterName: "",
+    checkInName: "",
   },
 ];
 
@@ -67,11 +71,15 @@ const addNewKey = (
     numberOfKeys,
     isAvailable,
     lastActivity,
+    yourName: "",
+    requesterName: "",
+    checkInName: "",
   };
 
   keyCabinet.push(newKey);
 };
 
+// Key status and styles
 const keyStatus = {
   isAvailable: "bg-emerald-800",
   notAvailable: "bg-rose-800",
@@ -95,8 +103,12 @@ function updateGrid(cabinet) {
   for (let key = 0; key < cabinet.length; key++) {
     roomNumbers[key].innerText = "Room-" + cabinet[key].roomID;
 
+    statuses[key].classList.remove(
+      ...keyStatus.isAvailable.split(" "),
+      keyStatus.notAvailable.split(" "),
+    );
     statuses[key].classList.add(
-      cabinet[key].isAvailable
+      cabinet[key].isAvailable === true
         ? keyStatus.isAvailable.split(" ")
         : keyStatus.notAvailable.split(" "),
     );
@@ -137,11 +149,10 @@ function addHolder() {
 }
 
 updateGrid(keyCabinet);
+populateCabinetLogs();
 
-// Forms
+// Form
 frmAddHolder = document.getElementById("add-key-holder");
-frmCheckOutKey = document.getElementById("check-out-key");
-frmCheckInKey = document.getElementById("check-in-key");
 
 // Form - Add new holder
 frmAddHolder.addEventListener("click", (event) => {
@@ -160,6 +171,8 @@ frmAddHolder.addEventListener("click", (event) => {
       addHolder();
       //update key cabinet grid
       updateGrid(keyCabinet);
+      //   Populate cabinet logs
+      populateCabinetLogs();
       // Update room dropdowns
       updateRoomDropdowns();
       // Clear fields
@@ -172,13 +185,19 @@ frmAddHolder.addEventListener("click", (event) => {
 });
 
 function clearFields([...fields]) {
-  fields.forEach((item) => (item.value = ""));
+  for (let item = 0; item < fields.length; item++) {
+    if (fields[item].type == "checkbox") {
+      fields[item].checked = false;
+    } else {
+      fields[item].value = "";
+    }
+  }
 }
 
 // Key check out
 function checkOutKey(roomNum, yourName, isRequester, requesterName) {
-  let isKeyAvailable = false;
-  let refKey = "";
+  let isKeyAvailable;
+  let refKey;
 
   for (let key = 0; key < keyCabinet.length; key++) {
     if (keyCabinet[key].roomID == roomNum) {
@@ -187,10 +206,10 @@ function checkOutKey(roomNum, yourName, isRequester, requesterName) {
     }
   }
 
-  if (isKeyAvailable != false) {
-    refKey.isAvailable = false;
+  if (isKeyAvailable == true) {
     refKey.lastActivity = new Date();
     refKey.yourName = yourName;
+
     if (isRequester) {
       refKey.requesterName = requesterName;
     }
@@ -198,12 +217,15 @@ function checkOutKey(roomNum, yourName, isRequester, requesterName) {
     alert("This key is already checked out!");
     return;
   }
+  refKey.isAvailable = false;
+  updateGrid(keyCabinet);
+  populateCabinetLogs();
 }
 
 // Key check in
 function checkInKey(roomNum, yourName) {
-  let isKeyAvailable = true;
-  let refKey = "";
+  let isKeyAvailable;
+  let refKey;
 
   for (let key = 0; key < keyCabinet.length; key++) {
     if (keyCabinet[key].roomID == roomNum) {
@@ -212,14 +234,118 @@ function checkInKey(roomNum, yourName) {
     }
   }
 
-  if (isKeyAvailable != true) {
-    refKey.isAvailable = true;
+  if (isKeyAvailable !== true) {
     refKey.lastActivity = new Date();
-    refKey.yourName = yourName;
+    refKey.checkInName = yourName;
+    refKey.isAvailable = true;
   } else {
     alert("This key is already checked in!");
     return;
   }
+
+  updateGrid(keyCabinet);
+  populateCabinetLogs();
 }
 
 // Form - Check out key
+frmCheckOutKey = document.getElementById("check-out-key");
+
+frmCheckOutKey.addEventListener("submit", (event) => {
+  event.preventDefault(); //Prevent default behaviour to assign custom event handler
+
+  //   Check out form fields
+  let roomCheckOut = document.getElementById("select-room-number-checkout");
+  let nameCheckOut = document.getElementById("your-name-checkout");
+  let isRequester = document.getElementById("delegate");
+  let requesterName = document.getElementById("requester-name-checkout");
+  // console.log(requesterName.value);
+  //   Validate the fields
+  if (isRequester.checked == true && requesterName.value.trim() == "") {
+    alert("Please provide requester name.");
+    return;
+  }
+
+  if (nameCheckOut.value.trim() == requesterName.value.trim()) {
+    alert(
+      "Your name cannot be the same as the requester's name if you're checking out on their behalf.",
+    );
+    return;
+  }
+  //   check out the key if details are appropriate and correct
+  checkOutKey(
+    roomCheckOut.value,
+    nameCheckOut.value,
+    isRequester.checked,
+    requesterName.value,
+  );
+
+  console.log(keyCabinet);
+
+  clearFields([roomCheckOut, nameCheckOut, isRequester, requesterName]);
+});
+
+// Form - Check in key
+frmCheckInKey = document.getElementById("check-in-key");
+
+frmCheckInKey.addEventListener("submit", (event) => {
+  event.preventDefault();
+  // form fields
+  let roomCheckIn = document.getElementById("select-room-number-checkin");
+  let checkInName = document.getElementById("your-name-checkin");
+
+  if (roomCheckIn.value.trim() == "" || checkInName.value.trim() == "") {
+    alert("Please provide all required details.");
+    return;
+  }
+
+  checkInKey(roomCheckIn.value.trim(), checkInName.value.trim());
+
+  console.log(keyCabinet);
+
+  clearFields([roomCheckIn, checkInName]);
+});
+
+// Key cabinet logs
+
+// Determine if key has been unavailable >24hrs
+function keyAvailability(logDt, Avail) {
+  let logDate = new Date(logDt).getTime();
+  let refDate = new Date().getTime();
+  let diff = Math.floor(refDate - logDate)/(60*60*1000);
+  console.log(diff);
+  let keyAvail = Avail;
+
+  if (diff > 24 && keyAvail == false) {
+    return keyStatus.likelyMissing;
+  } else if (diff < 24 && keyAvail == false || keyAvail == false) {
+    return keyStatus.notAvailable;
+  } else {
+    return keyStatus.isAvailable;
+  }
+}
+
+function populateCabinetLogs() {
+  let tableData = document.getElementById("cabinet-logs");
+  let rows = "";
+  let refDate = new Date();
+  refDate = refDate.getMilliseconds();
+
+  for (let key = keyCabinet.length-1; key >= 0; key--) {
+    rows =
+      rows +
+      `<tr>
+        <td class="text-center border">${keyCabinet[key].keyID}</td>
+        <td class="text-center border">${keyCabinet[key].roomID}</td>
+        <td class="border text-center">${keyCabinet[key].yourName}</td>
+        <td class="border text-center">${keyCabinet[key].requesterName}</td>
+        <td class="border text-center">${keyCabinet[key].checkInName}</td>
+        <td class="border"><button class="${keyAvailability(keyCabinet[key].lastActivity, keyCabinet[key].isAvailable)} w-5 h-5 rounded-full m-2"></button>${keyCabinet[key].isAvailable ? "Available" : "Not Available"}</td>
+        <td class="border">${keyCabinet[key].lastActivity}</td>
+        </tr>`;
+  }
+
+  tableData.innerHTML = rows;
+}
+
+setInterval(populateCabinetLogs(), 5000);
+
