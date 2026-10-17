@@ -15,7 +15,7 @@ const keyCabinet = [
     roomID: "001",
     numberOfKeys: 2,
     isAvailable: true,
-    lastActivity: new Date('Thu Oct 15 2026 00:36:56').toLocaleString(),
+    lastActivity: new Date("Thu Oct 15 2026 00:36:56"),
     yourName: "",
     requesterName: "",
     checkInName: "",
@@ -25,7 +25,7 @@ const keyCabinet = [
     roomID: "002",
     numberOfKeys: 3,
     isAvailable: false,
-    lastActivity: new Date('Thu Oct 14 2026 00:36:56').toLocaleString(),
+    lastActivity: new Date("Thu Oct 14 2026 00:36:56"),
     yourName: "Jane Doe",
     requesterName: "",
     checkInName: "",
@@ -35,7 +35,7 @@ const keyCabinet = [
     roomID: "003",
     numberOfKeys: 4,
     isAvailable: false,
-    lastActivity: new Date('Thu Oct 15 2026 00:36:56').toLocaleString(),
+    lastActivity: new Date("Thu Oct 15 2026 00:36:56"),
     yourName: "John Smith",
     requesterName: "",
     checkInName: "",
@@ -45,7 +45,7 @@ const keyCabinet = [
     roomID: "004",
     numberOfKeys: 1,
     isAvailable: true,
-    lastActivity: new Date('Thu Oct 15 2026 00:36:56').toLocaleString(),
+    lastActivity: new Date("Thu Oct 15 2026 00:36:56"),
     yourName: "",
     requesterName: "",
     checkInName: "",
@@ -116,26 +116,35 @@ function updateGrid(cabinet) {
 }
 
 // Update room name dropdowns
+updateRoomDropdowns();
 
 function updateRoomDropdowns() {
   let selectRoomCheckOut = document.getElementById(
     "select-room-number-checkout",
   );
   let selectRoomCheckIn = document.getElementById("select-room-number-checkin");
-  let listItems =
+  let listItemsAvail =
+    '<option value="" selected disabled>Select Room Number</option>';
+  let listItemsNotAvail =
     '<option value="" selected disabled>Select Room Number</option>';
 
   selectRoomCheckOut.innerHTML = "";
   selectRoomCheckIn.innerHTML = "";
 
   for (let key = 0; key < keyCabinet.length; key++) {
-    listItems =
-      listItems +
-      `<option value="${keyCabinet[key].roomID}">Room-${keyCabinet[key].roomID}</option>`;
+    if (keyCabinet[key].isAvailable === true) {
+      listItemsAvail =
+        listItemsAvail +
+        `<option value="${keyCabinet[key].roomID}">Room-${keyCabinet[key].roomID}</option>`;
+    } else {
+      listItemsNotAvail =
+        listItemsNotAvail +
+        `<option value="${keyCabinet[key].roomID}">Room-${keyCabinet[key].roomID}</option>`;
+    }
   }
 
-  selectRoomCheckOut.innerHTML = listItems;
-  selectRoomCheckIn.innerHTML = listItems;
+  selectRoomCheckOut.innerHTML = listItemsAvail;
+  selectRoomCheckIn.innerHTML = listItemsNotAvail;
 }
 
 function addHolder() {
@@ -150,6 +159,7 @@ function addHolder() {
 
 updateGrid(keyCabinet);
 populateCabinetLogs();
+updateRoomDropdowns();
 
 // Form
 frmAddHolder = document.getElementById("add-key-holder");
@@ -220,6 +230,7 @@ function checkOutKey(roomNum, yourName, isRequester, requesterName) {
   refKey.isAvailable = false;
   updateGrid(keyCabinet);
   populateCabinetLogs();
+  updateRoomDropdowns();
 }
 
 // Key check in
@@ -245,6 +256,7 @@ function checkInKey(roomNum, yourName) {
 
   updateGrid(keyCabinet);
   populateCabinetLogs();
+  updateRoomDropdowns();
 }
 
 // Form - Check out key
@@ -311,26 +323,37 @@ frmCheckInKey.addEventListener("submit", (event) => {
 function keyAvailability(logDt, Avail) {
   let logDate = new Date(logDt).getTime();
   let refDate = new Date().getTime();
-  let diff = Math.floor(refDate - logDate)/(60*60*1000);
+  let diff = Math.floor(refDate - logDate) / (60 * 60 * 1000);
   console.log(diff);
   let keyAvail = Avail;
 
   if (diff > 24 && keyAvail == false) {
     return keyStatus.likelyMissing;
-  } else if (diff < 24 && keyAvail == false || keyAvail == false) {
+  } else if ((diff < 24 && keyAvail == false) || keyAvail == false) {
     return keyStatus.notAvailable;
   } else {
     return keyStatus.isAvailable;
   }
 }
 
+function elapsedHrs(dateTime) {
+  let logDate = new Date(dateTime).getTime();
+  let refDate = new Date().getTime();
+  let diff = Math.floor(refDate - logDate) / (60 * 60 * 1000);
+  if (diff < 24) {
+    return diff.toFixed(1) + " hrs ago";
+  } else {
+    return Math.floor(diff / 24) + " days ago";
+  }
+}
+
 function populateCabinetLogs() {
   let tableData = document.getElementById("cabinet-logs");
   let rows = "";
-  let refDate = new Date();
-  refDate = refDate.getMilliseconds();
+  //   let refDate = new Date();
+  //   refDate = refDate.getMilliseconds();
 
-  for (let key = keyCabinet.length-1; key >= 0; key--) {
+  for (let key = keyCabinet.length - 1; key >= 0; key--) {
     rows =
       rows +
       `<tr>
@@ -340,7 +363,7 @@ function populateCabinetLogs() {
         <td class="border text-center">${keyCabinet[key].requesterName}</td>
         <td class="border text-center">${keyCabinet[key].checkInName}</td>
         <td class="border"><button class="${keyAvailability(keyCabinet[key].lastActivity, keyCabinet[key].isAvailable)} w-5 h-5 rounded-full m-2"></button>${keyCabinet[key].isAvailable ? "Available" : "Not Available"}</td>
-        <td class="border">${keyCabinet[key].lastActivity}</td>
+        <td class="border px-2">${elapsedHrs(keyCabinet[key].lastActivity)} @ ${keyCabinet[key].lastActivity.toLocaleString()}</td>
         </tr>`;
   }
 
@@ -348,4 +371,3 @@ function populateCabinetLogs() {
 }
 
 setInterval(populateCabinetLogs(), 5000);
-
