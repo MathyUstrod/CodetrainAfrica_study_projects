@@ -99,7 +99,7 @@
       <div class="grid grid-cols-1 lg:grid-cols-3 max-w-auto">
         <!-- Add new key holder -->
         <section>
-          <div class="grid grid-cols-1 mt-2 mx-12 bg-violet-100">
+          <div class="grid grid-cols-1 mt-6 mx-12 bg-violet-100">
             <details>
               <summary
                 class="text-violet-800 text-lg md:text-3xl font-semibold p-2"
@@ -295,31 +295,37 @@
         </section>
       </div>
       <!-- Table -->
-      <section class="flex justify-center flex-col mt-6 bg-violet-100 w-3xl" id="key-logs">
-        <h3 class="font-semibold text-violet-800 text-2xl mx-4 my-4">
-          Key Cabinet Activity Log
-        </h3>
-        <table class="border-collapse border border-violet-500 text-md md:text-xl text-violet-800 mx-4 mb-12 table-auto md:table-fixed">
-          <thead>
-            <tr class="bg-violet-200">
-              <th class="border border-violet-500 p-2">Key ID</th>
-              <th class="border border-violet-500 p-2">Room ID</th>
-              <th class="border border-violet-500 p-2">
-                Name of Person Checking Key Out
-              </th>
-              <th class="border border-violet-500 p-2">Requester Name</th>
-              <th class="border border-violet-500 p-2">
-                Name of Person Checking Key In
-              </th>
-              <th class="border border-violet-500 p-2">Status</th>
-              <th class="border border-violet-500 p-2">Last Activity</th>
-            </tr>
-            <tbody id="cabinet-logs">
+      <!-- Table Section Wrapper -->
+<section class="flex flex-col mt-6 bg-violet-100" id="key-logs">
+  <h3 class="font-semibold text-violet-800 text-2xl mx-4 my-4">
+    Key Cabinet Activity Log
+  </h3>
+  
+  <!-- 1. CRITICAL WRAPPER: This div enables the horizontal scroll bar on small devices -->
+  <div class="overflow-x-auto mx-4 mb-12 border border-violet-500 rounded-md">
+    
+    <!-- 2. MIN-WIDTH SETTING: Ensures the table maintains a readable minimum width on mobile so it forces scrolling rather than squishing -->
+    <table class="border-collapse text-md md:text-xl text-violet-800 min-w-[800px] w-full table-fixed">
+      <thead>
+        <tr class="bg-violet-200">
+          <th class="border-b border-r border-violet-500 p-2 w-[10%]">Key ID</th>
+          <th class="border-b border-r border-violet-500 p-2 w-[10%]">Room ID</th>
+          <th class="border-b border-r border-violet-500 p-2 w-[25%]">Name of Person Checking Key Out</th>
+          <th class="border-b border-r border-violet-500 p-2 w-[15%]">Requester Name</th>
+          <th class="border-b border-r border-violet-500 p-2 w-[25%]">Name of Person Checking Key In</th>
+          <th class="border-b border-r border-violet-500 p-2 w-[10%]">Status</th>
+          <th class="border-b border-violet-500 p-2 w-[15%]">Last Activity</th>
+        </tr>
+      </thead>
+      <!-- Preserved ID for your JavaScript string generation/DOM injection -->
+      <tbody id="cabinet-logs">
+        <!-- JS will inject rows here dynamically -->
+      </tbody>
+    </table>
+    
+  </div>
+</section>
 
-            </tbody>
-          </thead>
-        </table>
-      </section>
     </main>
 
     <script lang="text/javascript" src="app.js"></script>
